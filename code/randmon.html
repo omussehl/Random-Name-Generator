@@ -1,0 +1,83 @@
+<!-- INSERT BOILER PLATE CODE -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- REACT LIBRARY -->
+    <script src="https://unpkg.com/react@15.5.4/dist/react.js"></script>
+    <!-- REACT DOM LIBRARY -->
+    <script src="https://unpkg.com/react-dom@15.5.4/dist/react-dom.js"></script>
+    <!-- BABEL LIBRARY -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>
+    <title>Boiler Plate Code</title>
+  </head>
+  <body>
+    <!-- DESIGNATED LOCATION TO INSERT REACT CONTENT  -->
+    <div id="app">React has not rendered yet</div>
+
+    <!-- JAVASCRIPT -->
+    <script type="text/babel">
+      let names = [
+        'Omar',
+        'Aidan',
+        'Elliott',
+        'Griffin',
+        'Tyler',
+        'Nathan',
+        'Stuart',
+        'Addison',
+        'Tristan',
+        'Samuel',
+      ];
+
+      function shuffleArray(array) {
+        for (var i = array.length - 1; i > 0; i--) {
+          var j = Math.floor(Math.random() * (i + 1));
+          var temp = array[i];
+          array[i] = array[j];
+          array[j] = temp;
+        }
+        for (let i = 0; i < names.length; i++) {
+          console.log(names[i]);
+        }
+      }
+
+      shuffleArray(names);
+
+      class Random extends React.Component {
+        handleButtonTouch() {
+          shuffleArray(names);
+          alert(names);
+        }
+
+        render() {
+          return (
+            <div>
+              <h1>Random Order Generator</h1>
+              <button onClick={this.handleButtonTouch}>Randomize</button>
+              <div>
+                <ol>
+                  <li>{names[0]}</li>
+                  <li>{names[1]}</li>
+                  <li>{names[2]}</li>
+                  <li>{names[3]}</li>
+                  <li>{names[4]}</li>
+                  <li>{names[5]}</li>
+                  <li>{names[6]}</li>
+                  <li>{names[7]}</li>
+                  <li>{names[8]}</li>
+                  <li>{names[9]}</li>
+                </ol>
+              </div>
+            </div>
+          );
+        }
+      }
+      console.log(names);
+
+      ReactDOM.render(<Random />, document.getElementById('app'));
+    </script>
+  </body>
+</html>
